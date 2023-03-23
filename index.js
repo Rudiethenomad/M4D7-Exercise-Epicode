@@ -25,7 +25,7 @@ async function postData(url = "https://striveschool-api.herokuapp.com/api/produc
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
+      credentials: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFjMzg4N2E0YmFhODAwMTNlODQ5NTgiLCJpYXQiOjE2Nzk1NzEwNzksImV4cCI6MTY4MDc4MDY3OX0.B9E6hqwpe5NT2FOmXX3CtQtLsfpcPQRBQqAn8TqcXWM", // include, *same-origin, omit
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
