@@ -7,19 +7,19 @@ const endpoint = "https://striveschool-api.herokuapp.com/api/product";
 
 
 
-fetch('https://striveschool-api.herokuapp.com/api/product')
-    .then(response => {
-        // handle the response
-    })
-    .catch(error => {
-        // handle the error
-    });
+fetch("https://striveschool-api.herokuapp.com/api/product", { 
+headers: { 
+"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFjMzg4N2E0YmFhODAwMTNlODQ5NTgiLCJpYXQiOjE2Nzk1NzEwNzksImV4cCI6MTY4MDc4MDY3OX0.B9E6hqwpe5NT2FOmXX3CtQtLsfpcPQRBQqAn8TqcXWM" 
+} 
+})
+   .then(response => response.json())
+   .then(data => console.log(JSON.stringify(data)))
 
 
 
 
 
-async function postData(url = "", data = {}) {
+async function postData(url = "https://striveschool-api.herokuapp.com/api/product", data = {}) {
     // Default options are marked with *
     const response = await fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
