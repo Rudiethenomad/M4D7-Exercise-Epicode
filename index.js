@@ -12,9 +12,30 @@ headers: {
 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFjMzg4N2E0YmFhODAwMTNlODQ5NTgiLCJpYXQiOjE2Nzk1NzEwNzksImV4cCI6MTY4MDc4MDY3OX0.B9E6hqwpe5NT2FOmXX3CtQtLsfpcPQRBQqAn8TqcXWM" 
 } 
 })
-   .then(response => response.json())
-   .then(data => console.log(JSON.stringify(data)))
+.then(response => response.json())
+.then(data => console.log(JSON.stringify(data)))
 
+
+
+const createListItem = (event) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('list-group-item');
+
+    const span = document.createElement('span');
+    span.innerText = event.name;
+
+    listItem.appendChild(span);
+    list.appendChild(listItem);
+  };
+  const populateList = events => events.forEach(createListItem);
+
+
+
+  
+
+
+
+   
 //Post starts here//
 
    const ENDPOINT = 'https://striveschool-api.herokuapp.com/api/product';
@@ -23,22 +44,12 @@ headers: {
    const descriptionInput = document.getElementById('product_name_fr');
    const priceInput = document.getElementById('product_name_fr');
    const quantityInput = document.getElementById('available_quantity');
-
+    const buttonInput = document.getElementById('singlebutton')
    const form = document.getElementById('product_new');
    
 
 
 
-   const validateDescription = () => {
-     errors.innerText = '';
-
-     if (descriptionInput.value.trim() === '') {
-       errors.innerText = 'Description must not be empty!'
-       return false;
-     }
-
-     return true;
-   }
 
    const validatePrice = () => {
      errors.innerText = '';
@@ -65,11 +76,7 @@ headers: {
 
  
 
-   const validateForm = () => {
-     return validateDescription() &&
-       validateName() &&
-       validateTime();
-   };
+ 
 
    const handleFormSubmit = async (event) => {
      event.preventDefault();
@@ -112,14 +119,17 @@ headers: {
    
 
    };
-  
- 
+  //console.log(handleFormSubmit);
+  //.console.log(validatePrice)
 
-   form.addEventListener('singlebutton', handleFormSubmit);
+
+ 
+/*
+   buttonInput.addEventListener('singlebutton', handleFormSubmit);
   
    priceInput.addEventListener('blur', validatePrice);
    descriptionInput.addEventListener('blur', validateDescription);
    quantityInput.addEventListener('blur', validateQuantity);
-
+*/
 
 
