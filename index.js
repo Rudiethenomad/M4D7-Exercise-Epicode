@@ -5,7 +5,7 @@ const endpoint = "https://striveschool-api.herokuapp.com/api/product";
 
 
 
-
+//Get Starts here//
 
 fetch("https://striveschool-api.herokuapp.com/api/product", { 
 headers: { 
@@ -15,27 +15,19 @@ headers: {
    .then(response => response.json())
    .then(data => console.log(JSON.stringify(data)))
 
+//Post starts here//
 
    const ENDPOINT = 'https://striveschool-api.herokuapp.com/api/product';
 
-   const nameInput = document.getElementById('product_name');
+   const nameInput = document.getElementById('product_id');
    const descriptionInput = document.getElementById('product_name_fr');
-   const priceInput = document.getElementById('product_categorie');
-   const timeInput = document.getElementById('available_quantity');
+   const priceInput = document.getElementById('product_name_fr');
+   const quantityInput = document.getElementById('available_quantity');
 
-   const form = document.getElementById('form');
-   const errors = document.getElementById('errors');
+   const form = document.getElementById('product_new');
+   
 
-   const validateName = () => {
-     errors.innerText = '';
 
-     if (nameInput.value.trim() === '') {
-       errors.innerText = 'Name must not be empty!'
-       return false;
-     }
-
-     return true;
-   }
 
    const validateDescription = () => {
      errors.innerText = '';
@@ -58,6 +50,18 @@ headers: {
 
      return true;
    }
+
+   const validateQuantity = () => {
+     errors.innerText = '';
+
+     if (Number(timeInput.value) <= 0 ) {
+       errors.innerText = 'Quantity must be a positive number!'
+       return false;
+     }
+
+     return true;
+   }
+
 
  
 
@@ -104,13 +108,18 @@ headers: {
        const details = await response.json();
        errors.innerText = details.message;
      }
+
+   
+
    };
-/*
-   form.addEventListener('submit', handleFormSubmit);
-   nameInput.addEventListener('blur', validateName);
+  
+ 
+
+   form.addEventListener('singlebutton', handleFormSubmit);
+  
    priceInput.addEventListener('blur', validatePrice);
    descriptionInput.addEventListener('blur', validateDescription);
-   timeInput.addEventListener('blur', validateTime);
+   quantityInput.addEventListener('blur', validateQuantity);
 
-*/
+
 
